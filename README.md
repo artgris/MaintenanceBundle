@@ -39,7 +39,7 @@ artgris_maintenance:
     ips: [127.0.0.1, ...]        # IPs allow (prod)
 ``` 
  
-### 4) Override maintenance.html.twig
+### 4) Override maintenance.html.twig (optional)
 
 Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/view/maintenance.html.twig`.
 
