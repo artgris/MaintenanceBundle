@@ -17,6 +17,7 @@
             overflow: hidden;
             position: relative;
             color: #4d4d4d;
+
         }
 
         .content {
@@ -32,13 +33,29 @@
             right: 0;
         }
 
-        .content h1 {
-            font-size: 80px;
+        h1 {
+            font-size: 40px;
             font-weight: 100;
         }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 100;
+        }
+
         canvas {
             position: absolute;
             min-width: 100%;
+        }
+
+        @media screen and (min-width: 640px) {
+            h1 {
+                font-size: 80px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
         }
 
     </style>
