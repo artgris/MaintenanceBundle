@@ -1,5 +1,5 @@
 # MaintenanceBundle
-Symfony Bundle  to place your Symfony website in maintenance mode
+Symfony Bundle  to place your Symfony website in maintenance mode - [**Default Maintenance Page**] (https://artgris.github.io/MaintenanceBundle/)
 
 Installation
 ============
