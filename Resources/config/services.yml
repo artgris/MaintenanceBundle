@@ -1,0 +1,6 @@
+services:
+    maintenance_listener:
+        class: Artgris\MaintenanceBundle\EventListener\MaintenanceListener
+        arguments: ['%artgris_maintenance%', '@kernel', '@templating']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

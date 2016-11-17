@@ -1,0 +1,29 @@
+{
+  "name": "artgris/maintenance-bundle",
+  "type": "symfony-bundle",
+  "description": "maintenance bundle",
+  "keywords": [
+    "symfony",
+    "maintenance",
+    "bundle"
+  ],
+  "homepage": "https://github.com/artgris/MaintenanceBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Arthur Gribet",
+      "email": "a.gribet@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/framework-bundle": "^2.3 || ^3.0",
+    "twig/twig": "~1.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Artgris\\MaintenanceBundle": ""
+    }
+  },
+  "target-dir": "Artgris/MaintenanceBundle"
+}
