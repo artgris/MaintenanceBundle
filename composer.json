@@ -21,7 +21,7 @@
     "twig/twig": "~1.12"
   },
   "autoload": {
-    "psr-4": {
+    "psr-0": {
       "Artgris\\MaintenanceBundle": ""
     }
   },
