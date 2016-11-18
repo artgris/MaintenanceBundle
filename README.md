@@ -46,7 +46,7 @@ Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/view/maintenance
 Usage
 =====
 
-The `dev` and `test` environments were not affected by maintenance.
+The `dev` environment was not affected by maintenance.
 
 - Enable|Disable maintenance : `enable: true|false`
 - Add authorized IPs to prod : `ips: [127.0.0.1, ...]`

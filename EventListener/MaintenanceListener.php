@@ -50,9 +50,9 @@ class MaintenanceListener
 		/**
 		 * Conditions : Maintenance enable, not in dev/test mode, not in enable Ips
 		 */
-		if ($this->enable && !in_array($this->kernel->getEnvironment(), ['test', 'dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {
+		if ($this->enable && !in_array($this->kernel->getEnvironment(), ['dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {
 			$content = $this->templating->render('@ArtgrisMaintenance/maintenance.html.twig');
-			$event->setResponse(new Response($content, 503));
+			$event->setResponse(new Response($content, Response::HTTP_SERVICE_UNAVAILABLE));
 			$event->stopPropagation();
 		}
 	}

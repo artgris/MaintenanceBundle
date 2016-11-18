@@ -20,6 +20,9 @@
     "symfony/framework-bundle": "^2.3 || ^3.0",
     "twig/twig": "~1.12"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~3.7"
+  },
   "autoload": {
     "psr-0": {
       "Artgris\\MaintenanceBundle": ""
