@@ -1,97 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maintenance</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <style>
-        body, html {
-            font-family: 'Raleway', sans-serif;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            color: #4d4d4d;
-
-        }
-
-        .content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            text-align: center;
-            width: 100%;
-            overflow: auto;
-            margin: auto;
-            left: 0;
-            right: 0;
-        }
-
-        h1 {
-            font-size: 40px;
-            font-weight: 100;
-        }
-
-        h2 {
-            font-size: 20px;
-            font-weight: 100;
-        }
-
-        canvas {
-            position: absolute;
-            min-width: 100%;
-        }
-
-        @media screen and (min-width: 640px) {
-            h1 {
-                font-size: 80px;
-            }
-
-            h2 {
-                font-size: 30px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Maintenance</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>body,html{font-family:Raleway,sans-serif;width:100%;height:100%;margin:0;padding:0;overflow:hidden;position:relative;color:#4d4d4d}.content{position:absolute;top:50%;transform:translateY(-50%);z-index:1000;text-align:center;width:100%;overflow:auto;margin:auto;left:0;right:0}h1{font-size:40px;font-weight:100}h2{font-size:20px;font-weight:100}canvas{position:absolute;min-width:100%}@media screen and (min-width:640px){h1{font-size:80px}h2{font-size:30px}}</style>
 </head>
 <body>
 <div class="content">
-    <h1>Site under maintenance</h1>
-    <h2>We'll be back soon. Sorry for inconvenience.</h2>
+<h1>Site under maintenance</h1>
+<h2>We'll be back soon. Sorry for inconvenience.</h2>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
-<script>
-
-    function generateTrianglify(withadd) {
-        var trianglify = Trianglify({
-            width: window.innerWidth,
-            height: window.innerHeight,
-            cell_size: 40,
-            seed: 'u3c38'
-        })
-
-        if (withadd) {
-            document.body.appendChild(trianglify.canvas())
-        }
-        return trianglify
-    }
-
-    generateTrianglify(true);
-
-    window.onresize = function (event) {
-
-        var element = document.getElementsByTagName("canvas")[0]
-        var trianglify = generateTrianglify(false)
-        element.parentNode.replaceChild(trianglify.canvas(), element)
-
-    }
-
-</script>
+<script>function generateTrianglify(e){var n=Trianglify({width:window.innerWidth,height:window.innerHeight,cell_size:40,seed:"u3c38"});return e&&document.body.appendChild(n.canvas()),n}generateTrianglify(!0),window.onresize=function(e){var n=document.getElementsByTagName("canvas")[0],i=generateTrianglify(!1);n.parentNode.replaceChild(i.canvas(),n)}</script>
 </body>
 </html>
