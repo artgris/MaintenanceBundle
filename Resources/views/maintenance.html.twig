@@ -43,9 +43,11 @@
             font-weight: 100;
         }
 
-        canvas {
+        svg {
             position: absolute;
             min-width: 100%;
+            top: 0;
+            left: 0;
         }
 
         @media screen and (min-width: 640px) {
@@ -74,10 +76,10 @@
             height: window.innerHeight,
             cell_size: 40,
             seed: 'u3c38'
-        })
+        });
 
         if (withadd) {
-            document.body.appendChild(trianglify.canvas())
+            document.body.appendChild(trianglify.svg())
         }
         return trianglify
     }
@@ -85,12 +87,13 @@
     generateTrianglify(true);
 
     window.onresize = function (event) {
-
-        var element = document.getElementsByTagName("canvas")[0]
+        var element = document.getElementsByTagName("svg")[0]
         var trianglify = generateTrianglify(false)
-        element.parentNode.replaceChild(trianglify.canvas(), element)
+        element.parentNode.replaceChild(trianglify.svg(), element)
 
     }
+
+
 
 </script>
 </body>
