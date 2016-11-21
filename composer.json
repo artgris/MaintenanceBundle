@@ -1,7 +1,7 @@
 {
   "name": "artgris/maintenance-bundle",
   "type": "symfony-bundle",
-  "description": "maintenance bundle",
+  "description": "Symfony Bundle to place your Symfony website in maintenance mode",
   "keywords": [
     "symfony",
     "maintenance",
