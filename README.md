@@ -41,7 +41,7 @@ artgris_maintenance:
  
 ### 4) Override maintenance.html.twig (optional)
 
-Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/view/maintenance.html.twig`.
+Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/views/maintenance.html.twig`.
 
 Usage
 =====
