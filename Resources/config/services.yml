@@ -1,6 +1,6 @@
 services:
     maintenance_listener:
         class: Artgris\MaintenanceBundle\EventListener\MaintenanceListener
-        arguments: ['%artgris_maintenance%', '@kernel', '@templating']
+        arguments: ['%artgris_maintenance%', '@kernel', '@twig']
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
