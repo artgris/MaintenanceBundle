@@ -22,8 +22,10 @@ class Configuration implements ConfigurationInterface
 
 	    $rootNode
 		    ->children()
-		    ->scalarNode("enable")->defaultValue(false)->end()
-		    ->arrayNode("ips")->end()
+                ->scalarNode("enable")->defaultValue(false)->end()
+                ->arrayNode("ips")
+                    ->prototype('scalar')->end()
+                ->end()
 		    ->end();
 
         return $treeBuilder;
