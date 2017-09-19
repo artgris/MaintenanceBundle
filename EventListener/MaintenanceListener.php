@@ -32,6 +32,10 @@ class MaintenanceListener
      * @var Twig_Environment
      */
     private $twig_Environment;
+    /**
+     * @var mixed
+     */
+    private $response;
 
     /**
      * MaintenanceListener constructor.
@@ -44,6 +48,7 @@ class MaintenanceListener
     {
         $this->enable = $maintenance['enable'] ? $maintenance['enable'] : false;
         $this->ips = $maintenance['ips'] ? $maintenance['ips'] : [];
+        $this->response = $maintenance['response'];
         $this->kernel = $kernel;
         $this->twig_Environment = $twig_Environment;
     }
@@ -55,7 +60,7 @@ class MaintenanceListener
          */
         if ($this->enable && !in_array($this->kernel->getEnvironment(), ['dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {
             $content = $this->twig_Environment->render('@ArtgrisMaintenance/maintenance.html.twig');
-            $event->setResponse(new Response($content, Response::HTTP_SERVICE_UNAVAILABLE));
+            $event->setResponse(new Response($content, $this->response));
             $event->stopPropagation();
         }
     }
