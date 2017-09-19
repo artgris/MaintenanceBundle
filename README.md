@@ -37,6 +37,7 @@ to ` app/config/config.yml` :
 artgris_maintenance:
     enable: true                 # Enable|Disable maintenance
     ips: [127.0.0.1, ...]        # IPs allow (prod)
+    response: 503                # Maintenance Page HTTP Status Code
 ``` 
  
 ### 4) Override maintenance.html.twig (optional)
