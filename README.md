@@ -51,6 +51,7 @@ The `dev` environment was not affected by maintenance.
 
 - Enable|Disable maintenance : `enable: true|false`
 - Add authorized IPs to prod : `ips: [127.0.0.1, ...]`
+- Maintenance Page HTTP Status Code) : `response: 503`
 
 
 Don't forget to clear and warm the `prod` cache :
