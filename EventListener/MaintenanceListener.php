@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Artgris\MaintenanceBundle\EventListener;
-
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -10,7 +8,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Twig_Environment;
 
 /**
- * Maintenance Listener
+ * Maintenance Listener.
  *
  * @author Arthur Gribet <a.gribet@gmail.com>
  */
@@ -40,8 +38,8 @@ class MaintenanceListener
     /**
      * MaintenanceListener constructor.
      *
-     * @param array $maintenance
-     * @param KernelInterface $kernel
+     * @param array            $maintenance
+     * @param KernelInterface  $kernel
      * @param Twig_Environment $twig_Environment
      */
     public function __construct(array $maintenance, KernelInterface $kernel, Twig_Environment $twig_Environment)
@@ -55,7 +53,7 @@ class MaintenanceListener
 
     public function onKernelRequest(GetResponseEvent $event)
     {
-        /**
+        /*
          * Conditions : Maintenance enable, not in dev/test mode, not in enable Ips
          */
         if ($this->enable && !in_array($this->kernel->getEnvironment(), ['dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {

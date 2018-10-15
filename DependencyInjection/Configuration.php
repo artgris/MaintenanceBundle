@@ -21,14 +21,14 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('artgris_maintenance');
 
-	    $rootNode
-		    ->children()
-                ->scalarNode("enable")->defaultValue(false)->end()
-                ->scalarNode("response")->defaultValue(Response::HTTP_SERVICE_UNAVAILABLE)->end()
-                ->arrayNode("ips")
+        $rootNode
+            ->children()
+                ->scalarNode('enable')->defaultValue(false)->end()
+                ->scalarNode('response')->defaultValue(Response::HTTP_SERVICE_UNAVAILABLE)->end()
+                ->arrayNode('ips')
                     ->prototype('scalar')->end()
                 ->end()
-		    ->end();
+            ->end();
 
         return $treeBuilder;
     }
