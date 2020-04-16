@@ -46,7 +46,7 @@ Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/views/maintenanc
 or in (S4 project) `template/bundles/ArtgrisMaintenanceBundle/maintenance.html.twig`
 
 ex:
-```php  
+```twig  
 {% extends "@!ArtgrisMaintenance/maintenance.html.twig" %}
 
 {% block content %}
