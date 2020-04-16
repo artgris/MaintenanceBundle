@@ -43,6 +43,17 @@ artgris_maintenance:
 ### 4) Override maintenance.html.twig (optional)
 
 Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/views/maintenance.html.twig`.
+or in (S4 project) `template/bundles/ArtgrisMaintenanceBundle/maintenance.html.twig`
+
+ex:
+```php  
+{% extends "@!ArtgrisMaintenance/maintenance.html.twig" %}
+
+{% block content %}
+    <h1>Site en cours de maintenance</h1>
+    <h2>Nous reviendrons bientôt. Désolé pour le dérangement.</h2>
+{% endblock %}
+```  
 
 Usage
 =====
