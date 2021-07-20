@@ -8,42 +8,22 @@ Installation
 
 `composer require artgris/maintenance-bundle`
 
-### 2) Enable Bundle
-
-        // app/AppKernel.php
-        
-        // ...
-        class AppKernel extends Kernel
-        {
-            // ...
-        
-            public function registerBundles()
-            {
-                $bundles = array(
-                    // ...
-                    new Artgris\MaintenanceBundle\ArtgrisMaintenanceBundle(),
-                );
-        
-                // ...
-            }
-        }
-### 3) Configure the Bundle 
+### 2) Configure the Bundle 
 
 Adds following configurations 
 
-to ` app/config/config.yml` :
+to ` config/packages/artgris_maintenance.yaml` :
 
 ```yml  
 artgris_maintenance:
     enable: true                 # Enable|Disable maintenance
-    ips: [127.0.0.1, ...]        # IPs allow (prod)
+    ips: ["127.0.0.1","::1",...]        # IPs allow (prod)
     response: 503                # Maintenance Page HTTP Status Code
 ``` 
  
 ### 4) Override maintenance.html.twig (optional)
 
-Create your own twig in `app/Resources/ArtgrisMaintenanceBundle/views/maintenance.html.twig`.
-or in (S4 project) `template/bundles/ArtgrisMaintenanceBundle/maintenance.html.twig`
+in `template/bundles/ArtgrisMaintenanceBundle/maintenance.html.twig`
 
 ex:
 ```twig  
@@ -61,11 +41,11 @@ Usage
 The `dev` environment was not affected by maintenance.
 
 - Enable|Disable maintenance : `enable: true|false`
-- Add authorized IPs to prod : `ips: [127.0.0.1, ...]`
+- Add authorized IPs to prod : `ips: ["127.0.0.1","::1",...]`
 - Maintenance Page HTTP Status Code : `response: 503`
 
 
-Don't forget to clear and warm the `prod` cache :
+Don't forget to clear the `prod` cache :
 
-    php bin/console cache:clear --env=prod
+    php bin/console cache:clear
 

@@ -5,9 +5,9 @@ namespace Artgris\MaintenanceBundle\EventListener;
 
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Twig_Environment;
+use Twig\Environment;
 
 /**
  * Maintenance Listener
@@ -29,7 +29,7 @@ class MaintenanceListener
      */
     private $kernel;
     /**
-     * @var Twig_Environment
+     * @var Environment
      */
     private $twig_Environment;
     /**
@@ -42,18 +42,18 @@ class MaintenanceListener
      *
      * @param array $maintenance
      * @param KernelInterface $kernel
-     * @param Twig_Environment $twig_Environment
+     * @param Environment $twig_Environment
      */
-    public function __construct(array $maintenance, KernelInterface $kernel, Twig_Environment $twig_Environment)
+    public function __construct(array $maintenance, KernelInterface $kernel, Environment $twig_Environment)
     {
-        $this->enable = $maintenance['enable'] ? $maintenance['enable'] : false;
-        $this->ips = $maintenance['ips'] ? $maintenance['ips'] : [];
+        $this->enable = $maintenance['enable'] ?: false;
+        $this->ips = $maintenance['ips'] ?: [];
         $this->response = $maintenance['response'];
         $this->kernel = $kernel;
         $this->twig_Environment = $twig_Environment;
     }
 
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(RequestEvent $event)
     {
         /**
          * Conditions : Maintenance enable, not in dev/test mode, not in enable Ips
@@ -61,7 +61,6 @@ class MaintenanceListener
         if ($this->enable && !in_array($this->kernel->getEnvironment(), ['dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {
             $content = $this->twig_Environment->render('@ArtgrisMaintenance/maintenance.html.twig');
             $event->setResponse(new Response($content, $this->response));
-            $event->stopPropagation();
         }
     }
 }
