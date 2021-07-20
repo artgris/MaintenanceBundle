@@ -25,7 +25,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Artgris\\MaintenanceBundle": "",
+      "Artgris\\MaintenanceBundle": ""
     }
   },
   "target-dir": "Artgris/MaintenanceBundle"
