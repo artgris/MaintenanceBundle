@@ -21,7 +21,7 @@ artgris_maintenance:
     response: 503                # Maintenance Page HTTP Status Code
 ``` 
  
-### 4) Override maintenance.html.twig (optional)
+### 3) Override maintenance.html.twig (optional)
 
 in `templates/bundles/ArtgrisMaintenanceBundle/maintenance.html.twig`
 
