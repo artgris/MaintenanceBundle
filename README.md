@@ -16,9 +16,9 @@ to ` config/packages/artgris_maintenance.yaml` :
 
 ```yml  
 artgris_maintenance:
-    enable: true                 # Enable|Disable maintenance
-    ips: ["127.0.0.1","::1",...] # IPs allow (prod)
-    response: 503                # Maintenance Page HTTP Status Code
+    enable: true                 # Enable|Disable maintenance - default: false
+    ips: ["127.0.0.1","::1",...] # IPs allow (prod) - default: []
+    response: 503                # Maintenance Page HTTP Status Code - default: 503
 ``` 
  
 ### 3) Override maintenance.html.twig (optional)
