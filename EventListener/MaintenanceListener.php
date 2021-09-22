@@ -4,6 +4,7 @@
 namespace Artgris\MaintenanceBundle\EventListener;
 
 
+use Symfony\Component\HttpFoundation\IpUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -55,12 +56,18 @@ class MaintenanceListener
 
     public function onKernelRequest(RequestEvent $event)
     {
-        /**
-         * Conditions : Maintenance enable, not in dev/test mode, not in enable Ips
-         */
-        if ($this->enable && !in_array($this->kernel->getEnvironment(), ['dev']) && !in_array(@$_SERVER['REMOTE_ADDR'], $this->ips)) {
+
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
+        $request = $event->getRequest();
+
+        if ($this->enable && $this->kernel->getEnvironment() != 'dev' && !IpUtils::checkIp($request->getClientIp(), $this->ips)) {
             $content = $this->twig_Environment->render('@ArtgrisMaintenance/maintenance.html.twig');
             $event->setResponse(new Response($content, $this->response));
         }
     }
+
+
 }
